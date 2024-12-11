@@ -11,27 +11,35 @@ public class Items {
     public String upgradeType;
     public double time;
 
-    public Items(String gN, String gIT, int gV, String gUT, double gTi) {
+    public String buyKey;
+    public int price;
+
+    public Items(String gN, String gIT, int gV, String gUT, double gTi, String gBK, int gP) {
         name = gN;
         itemType = gIT;
         value = gV;
         upgradeType = gUT;
         time = gTi
+        buyKey = gBK;
+        price =gP;
     }
 
     public void checkItems() {
         for (i=1,i <= inventory.size(),i++) {
             private Items currentItem = inventory[i];
-            if (currentItem.itemType == "On Hit" && currentItem.time == 0) {
+            if (currentItem.itemType.equals("On Hit") && currentItem.time == 0) {
                 hitItems = addToItemArray(hitItems, checkItems);
-            } else if (currentItem.itemType == "Automatic") {
+            } else if (currentItem.itemType.equals("Automatic")) {
 
             }
         }
     }
 
     public void activateHitItems() {
-        for (i=1,i >=inventory.size(),i++) { }
+        double total = 0;
+        for (i=1,i >=hitItems.size(),i++) {
+            total = hitItems[i].value;
+        }
     }
 
     private Items[] addToItemArray(Items[] array, Items itemToAdd) {

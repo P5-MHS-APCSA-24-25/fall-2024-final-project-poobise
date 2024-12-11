@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class game {
     public static void main(String[] args) {
+        Items firstOne = new Items("firstone","On Hit",2,0)
+
         Scanner input = new Scanner(System.in);
         checkInput plop = new checkInput("helo");
 
@@ -18,14 +20,24 @@ public class game {
             if (userInput != "") {
                 plop.setInput(userInput);
                 String checkedInput = plop.checkInput();
-                if (checkedInput == "shop") {
+
+                if (checkedInput.equals("shop")) {
                     shopOpen = true;
+                    plop.toggleShop();
                 } else if (checkedInput.matches(".*\\d.*")) {
                     hits += Double.parseDouble(checkedInput);
+                } else if (shopOpen) {
+                    if (checkedInput.equals("b")) {
+
+                    }
                 }
             }
 
-            if (!shopOpen)
+            if (shopOpen) {
+                System.out.println("WELCOME TO THE SHOP!")
+                System.out.println("current items are: ")
+                System.out.println(firstOne)
+            } else
                 System.out.println("Hits: "+hits);
         }   
     }

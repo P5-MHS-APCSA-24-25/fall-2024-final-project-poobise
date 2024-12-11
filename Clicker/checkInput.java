@@ -6,19 +6,22 @@ public class checkInput {
     public String currentInput = "";
     public int plop = 1;
     public double hits = 2;
-    public boolean acceptInputs = true;
+    public boolean shopOpen = false;
 
     public checkInput(String startInput) {
         currentInput = startInput;
     }
     
+    public void toggleShop() {
+        shopOpen = !shopOpen;
+    }
+
     public void setInput(String givenInput) {
-        if (acceptInputs)
-            currentInput = givenInput;
+        currentInput = givenInput;
     }
 
     public String checkInput() {
-        if (currentInput == "shop") {
+        if (currentInput.equals("shop") || shopOpen) {
             return currentInput;
         } else
             return String.valueOf(currentInput.length());
