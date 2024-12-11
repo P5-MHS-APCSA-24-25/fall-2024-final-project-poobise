@@ -6,23 +6,27 @@ import java.util.Scanner;
 
 public class game {
     public static void main(String[] args) {
-        Double hits = 0.0;
         Scanner input = new Scanner(System.in);
         checkInput plop = new checkInput("helo");
 
+        Double hits = 0.0;
+        boolean shopOpen = false;
+
         while (true) {
             String userInput = input.next();
-            System.out.println("input is: "+userInput);
 
             if (userInput != "") {
                 plop.setInput(userInput);
-                String yeah = plop.checkInput();
-                if (yeah.includes("123456")) {
-                    hits += yeah;
+                String checkedInput = plop.checkInput();
+                if (checkedInput == "shop") {
+                    shopOpen = true;
+                } else if (checkedInput.matches(".*\\d.*")) {
+                    hits += Double.parseDouble(checkedInput);
                 }
             }
 
-            System.out.println("Hits: "+hits);
-        }
+            if (!shopOpen)
+                System.out.println("Hits: "+hits);
+        }   
     }
 }
