@@ -28,7 +28,7 @@ public class game {
                     hits += firstOne.activateHitItems(Double.parseDouble(checkedInput));
                 } else if (shopOpen) {
                     if (checkedInput.equals(firstOne.buyKey)) {
-                        firstOne.buyItem(firstOne,hits);
+                        hit = firstOne.buyItem(firstOne,hits);
                         firstOne.setItemsFolder();
                     }
                 }

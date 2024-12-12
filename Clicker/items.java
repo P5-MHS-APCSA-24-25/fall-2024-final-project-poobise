@@ -5,6 +5,7 @@
 public class Items {
     private Items[] inventory = new Items[1];
     private Items[] hitItems = new Items[1];
+    private Items[] autoItems = new Items[1];
 
     public String name;
     public String itemType;
@@ -51,11 +52,12 @@ public class Items {
         return letters*totalMulti;
     }
 
-    public void buyItem(Items itemToBuy, double currentHits) {
+    public double buyItem(Items itemToBuy, double currentHits) {
         if (currentHits >= itemToBuy.price) {
             currentHits -= itemToBuy.price;
             inventory = addToItemArray(inventory, itemToBuy);
         }
+        return currentHits;
     } 
 
     public boolean checkItemStatus() {
