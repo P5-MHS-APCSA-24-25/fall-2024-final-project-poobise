@@ -2,13 +2,13 @@
 // Author: Matthew Tuan
 // Period: 5A
 
-public class checkInput {
+public class CheckInput {
     public String currentInput = "";
     public int plop = 1;
     public double hits = 2;
     public boolean shopOpen = false;
 
-    public checkInput(String startInput) {
+    public CheckInput(String startInput) {
         currentInput = startInput;
     }
     
@@ -20,7 +20,7 @@ public class checkInput {
         currentInput = givenInput;
     }
 
-    public String checkInput() {
+    public String CheckInput() {
         if (currentInput.equals("shop") || shopOpen) {
             return currentInput;
         } else
