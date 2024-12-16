@@ -61,7 +61,6 @@ public class Items {
         for (int i=1; i < lengthItems.length-1; i++) {
             Items currentItem = lengthItems[i];
             
- System.out.println(currentItem.name);
             if (letters > currentItem.time) {
                 if (currentItem.upgradeType.equals("add"))
                     totalAdd += currentItem.value;

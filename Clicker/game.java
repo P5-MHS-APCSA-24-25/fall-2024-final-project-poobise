@@ -12,7 +12,8 @@ public class Game {
         Items stick = new Items("Stick","On Hit",2,"multi",0,"sti",200,"Sticks and stones will break Brian's bones and give you a 2x multiplier!");
         Items capybara = new Items("Capybara","On Hit",2,"add",0,"cap",200,"Even these guys hate Brian. Adds 2 to every string, but is able to be multiplied!");
         Items peter = new Items("Peter Griffin","On Hit",10,"addAfter",0,"pet",500,"Shut up Brian. \"Roadhouses\" Brian 10 times.");
-
+        Items badRandoms = new Items("Bad Randoms","On Length",9,"addAfter",20,"bad",500,"Brian encounters bad randoms on Brawl Stars and hits himself 9 times if your input is longer than 20!");
+        Items monkey = new Items("Monkey","multi",0"mon",2000,"Brian meets his own kind but even they hate him, and hit him 2 times as much as your input!");
 
         Scanner input = new Scanner(System.in);
         CheckInput checker = new CheckInput("helo");
