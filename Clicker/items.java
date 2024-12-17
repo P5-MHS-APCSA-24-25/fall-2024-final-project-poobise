@@ -49,7 +49,6 @@ public class Items {
         for (int i=1; i < hitItems.length-1; i++) {
             Items currentItem = hitItems[i];
             
-            System.out.println(currentItem.name);
             if (currentItem.upgradeType.equals("add"))
                 totalAdd += currentItem.value;
             else if (currentItem.upgradeType.equals("multi"))
@@ -71,7 +70,7 @@ public class Items {
             }
             
         }
-        
+
         return (letters + totalAdd) * totalMulti + totalAddAfter;
     }
 
@@ -94,8 +93,15 @@ public class Items {
         return true;
     }
 
-    private Items[] addToItemArray(Items[] array, Items itemToAdd) {
+    public void showItems() {
+        for (int i=1; i < inventory.length; i++) {
+            Items currentItem = inventory[i];
+            System.out.println(currentItem.name);
+        }
+    }
 
+    private Items[] addToItemArray(Items[] array, Items itemToAdd) {
+        System.out.println("item adding to array"+array);
         Items[] newArray = new Items[array.length+1];
 
         for (int i = 1; i < array.length; i++) {

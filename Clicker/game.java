@@ -13,7 +13,7 @@ public class Game {
         Items capybara = new Items("Capybara","On Hit",2,"add",0,"cap",200,"Even these guys hate Brian. Adds 2 to every string, but is able to be multiplied!");
         Items peter = new Items("Peter Griffin","On Hit",10,"addAfter",0,"pet",500,"Shut up Brian. \"Roadhouses\" Brian 10 times.");
         Items badRandoms = new Items("Bad Randoms","On Length",9,"addAfter",20,"bad",500,"Brian encounters bad randoms on Brawl Stars and hits himself 9 times if your input is longer than 20!");
-        Items monkey = new Items("Monkey","multi",0"mon",2000,"Brian meets his own kind but even they hate him, and hit him 2 times as much as your input!");
+        Items monkey = new Items("Monkey","On Length",2,"multi",0,"mon",2000,"Brian meets his own kind but even they hate him, and hit him 2 times as much as your input, if your input is longer than 16!");
 
         Scanner input = new Scanner(System.in);
         CheckInput checker = new CheckInput("helo");
@@ -33,6 +33,7 @@ public class Game {
                     checker.toggleShop();
                 } else if (checkedInput.matches(".*\\d.*")) {
                     hits += combo.activateItems(Double.parseDouble(checkedInput)); //  adds hits to the total hit amount from the checkedInput variable, which is turned into a double, and then activates items that activate on hit.
+                    combo.showItems();
                 } else if (shopOpen) {
                     if (checkedInput.equals(combo.buyKey) && combo.checkItemStatus(combo)) { // checks if shop is open, then if the input equals the buying key for the item
                         if (combo.buyItem(combo,hits) != hits) {
@@ -55,6 +56,41 @@ public class Game {
                         } else
                             System.out.println("Not enough hits, go hit Brian more!");
                     }
+                    if (checkedInput.equals(stick.buyKey) && combo.checkItemStatus(stick)) { 
+                        if (combo.buyItem(stick,hits) != hits) {
+                            hits = combo.buyItem(stick,hits);
+                            combo.setItemsFolder(); 
+                        } else
+                            System.out.println("Not enough hits, go hit Brian more!");
+                    }
+                    if (checkedInput.equals(capybara.buyKey) && combo.checkItemStatus(capybara)) { 
+                        if (combo.buyItem(capybara,hits) != hits) {
+                            hits = combo.buyItem(capybara,hits);
+                            combo.setItemsFolder(); 
+                        } else
+                            System.out.println("Not enough hits, go hit Brian more!");
+                    }
+                    if (checkedInput.equals(peter.buyKey) && combo.checkItemStatus(peter)) { 
+                        if (combo.buyItem(peter,hits) != hits) {
+                            hits = combo.buyItem(peter,hits);
+                            combo.setItemsFolder(); 
+                        } else
+                            System.out.println("Not enough hits, go hit Brian more!");
+                    }
+                    if (checkedInput.equals(badRandoms.buyKey) && combo.checkItemStatus(badRandoms)) { 
+                        if (combo.buyItem(badRandoms,hits) != hits) {
+                            hits = combo.buyItem(badRandoms,hits);
+                            combo.setItemsFolder(); 
+                        } else
+                            System.out.println("Not enough hits, go hit Brian more!");
+                    }
+                    if (checkedInput.equals(monkey.buyKey) && combo.checkItemStatus(monkey)) { 
+                        if (combo.buyItem(monkey,hits) != hits) {
+                            hits = combo.buyItem(monkey,hits);
+                            combo.setItemsFolder(); 
+                        } else
+                            System.out.println("Not enough hits, go hit Brian more!");
+                    }
                 }
             }
 
@@ -71,6 +107,26 @@ public class Game {
                     System.out.println("Item bought");
                 if (combo.checkItemStatus(ants))
                     System.out.println(ants.name+": "+ants.description+"\nPrice is: "+ants.price+"\nType \""+ants.buyKey+"\" to buy");
+                else
+                    System.out.println("Item bought");
+                if (combo.checkItemStatus(stick))
+                    System.out.println(stick.name+": "+stick.description+"\nPrice is: "+stick.price+"\nType \""+stick.buyKey+"\" to buy");
+                else
+                    System.out.println("Item bought");
+                if (combo.checkItemStatus(capybara))
+                    System.out.println(capybara.name+": "+capybara.description+"\nPrice is: "+capybara.price+"\nType \""+capybara.buyKey+"\" to buy");
+                else
+                    System.out.println("Item bought");
+                if (combo.checkItemStatus(peter))
+                    System.out.println(peter.name+": "+peter.description+"\nPrice is: "+peter.price+"\nType \""+peter.buyKey+"\" to buy");
+                else
+                    System.out.println("Item bought");
+                if (combo.checkItemStatus(badRandoms))
+                    System.out.println(badRandoms.name+": "+badRandoms.description+"\nPrice is: "+badRandoms.price+"\nType \""+badRandoms.buyKey+"\" to buy");
+                else
+                    System.out.println("Item bought");
+                if (combo.checkItemStatus(monkey))
+                    System.out.println(monkey.name+": "+monkey.description+"\nPrice is: "+monkey.price+"\nType \""+monkey.buyKey+"\" to buy");
                 else
                     System.out.println("Item bought");
             } else
